@@ -27,7 +27,14 @@ let input = document.querySelector('input');
 let btn = document.querySelector('button');
 let valCont = document.querySelector('.value-container');
 
-btn.addEventListener('click', function(){
+btn.addEventListener('click', translate);
+document.addEventListener('keydown', function(event){
+if(event.code == 'Enter'){
+        translate();
+    }
+})
+
+function translate(){
     let str = input.value.toUpperCase();
     str = [...str];
 
@@ -40,9 +47,7 @@ btn.addEventListener('click', function(){
     res = noComma(res);
 
     valCont.innerText = res;
-    // console.log(res)
-
-})
+}
 
 function noComma(str){
     for(let i = 0; i < str.length; i++){

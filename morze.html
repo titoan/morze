@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>morze</title>
+
+    <style>
+        .value-container,
+        .container{
+            width: 800px;
+            margin: 0 auto;
+            font-size: 32px;
+        }
+    </style>
+</head>
+<body>
+
+
+<div class="container"><input type="text"><button>value</button></div>
+<div class="value-container"></div>
+
+<script>
+
+let input = document.querySelector('input');
+let btn = document.querySelector('button');
+let valCont = document.querySelector('.value-container');
+
+btn.addEventListener('click', function(){
+    let str = input.value.toUpperCase();
+    str = [...str];
+
+    let res = str.map((item)=>{
+       item = morze[item];
+       return item;
+    })
+
+    res = res.toString();
+    res = noComma(res);
+
+    valCont.innerText = res;
+    // console.log(res)
+
+})
+
+function noComma(str){
+    for(let i = 0; i < str.length; i++){
+        if(str[i] == ','){
+          str = str.replace(str[i], ' ');
+        }
+    }
+
+    return str;
+}
+
+let morze = {
+    А: '.-',
+    Б: '-...',
+    В: '.--',
+    Г: '--.',
+    Д: '-..',
+    Е:'.',
+    Ж: '...-',
+    З: '--..',
+    И: '..',
+    Й: '.---',
+    К: '-.-',
+    Л: '.-..',
+    М: '--',
+    Н: '-.',
+    О: '---',
+    П: '.--.',
+    Р: '.-.',
+    С: '...',
+    Т: '-',
+    У: '..-',
+    Ф: '..-.',
+    Х: '....',
+    Ц: '-.-.',
+    Ч: '---.',
+    Ш:  '----',
+    Щ: '--.-',
+    Ъ: '.--.-.',
+    Ы: '-.--',
+    Э: '...-...',
+    Ю: '..--',
+    Я: '.-.-'
+}
+
+
+</script>
+</body>
+</html>
